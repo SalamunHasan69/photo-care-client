@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
   return (
-    <div className='w-[90%] mx-auto grid grid-cols-2'>
+    <div className='w-[90%] mx-auto lg:grid grid-cols-2'>
       <div>
         <img src="https://assets.thehansindia.com/h-upload/2021/07/08/1087103-photographer.jpg" alt="" />
       </div>
