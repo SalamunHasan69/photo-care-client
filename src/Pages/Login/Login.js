@@ -11,19 +11,19 @@ const Login = () => {
       <form novalidate="" action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
         <div className="space-y-4">
           <div>
-            <label for="email" className="block mb-2 text-sm">Email address</label>
-            <input type="email" name="email" id="email" placeholder="email" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
+            <label for="email" className="block mb-2 text-sm">Email</label>
+            <input type="email" name="email" id="email" placeholder="email" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" required />
           </div>
           <div>
             <div className="flex justify-between mb-2">
               <label for="password" className="text-sm">Password</label>
             </div>
-            <input type="password" name="password" id="password" placeholder="password" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
+            <input type="password" name="password" id="password" placeholder="password" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" required />
           </div>
         </div>
         <div className="space-y-2">
           <div>
-            <button type="button" className="w-full px-8 py-3 font-semibold rounded-md bg-success text-white">Sign in</button>
+            <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-success text-white">Sign in</button>
           </div>
           <div className='flex items-center w-full my-3'>
             <hr className='w-full dark:text-gray-400' />
