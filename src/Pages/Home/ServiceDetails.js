@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet"
 import { useLoaderData } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 // import { FaArrowRight } from "react-icons/fa";
@@ -13,6 +14,11 @@ const ServiceDetails = () => {
 
   return (
     <div>
+      <Helmet htmlAttributes>
+        <html lang="en" />
+        <title>Service Photo Care</title>
+        <meta name="description" content="Basic example" />
+      </Helmet>
       <div className="mx-auto my-20 max-w-lg p-4 shadow-md bg-black dark:text-gray-100">
         <div className="flex justify-between pb-4 border-bottom items-center">
           <div>
@@ -29,9 +35,6 @@ const ServiceDetails = () => {
           </PhotoProvider>
           <div className="space-y-2">
             <h3 className="text-xl font-semibold text-success">Price: ${price}</h3>
-            {/* <Link to={`/serviceDetails/${_id}`} className='text-success text-2xl font-bold' >
-              <FaArrowRight></FaArrowRight>
-            </Link> */}
             <p className="leading-snug text-white">{description}</p>
           </div>
         </div>

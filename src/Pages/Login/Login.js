@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from "react-helmet"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Contexts/AuthProvider';
@@ -54,6 +55,11 @@ const Login = () => {
 
   return (
     <div className="flex flex-col max-w-md p-6 rounded-md mx-auto sm:p-10 bg-black dark:text-gray-100 my-20">
+      <Helmet htmlAttributes>
+        <html lang="en" />
+        <title>Login Photo Care</title>
+        <meta name="description" content="Basic example" />
+      </Helmet>
       <div className="mb-8 text-center">
         <h1 className="my-3 text-4xl font-bold">Log in</h1>
       </div>

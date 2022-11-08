@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { Form, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from "react-helmet"
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Signup = () => {
@@ -30,6 +31,11 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col max-w-md p-6 rounded-md mx-auto sm:p-10 bg-black dark:text-gray-100 my-20">
+      <Helmet htmlAttributes>
+        <html lang="en" />
+        <title>Sign up Photo Care</title>
+        <meta name="description" content="Basic example" />
+      </Helmet>
       <div className="mb-8 text-center">
         <h1 className="my-3 text-4xl font-bold">Sign up</h1>
       </div>

@@ -29,7 +29,6 @@ const ServiceCard = ({ service }) => {
           <Link to={`/serviceDetails/${_id}`} className='text-success text-2xl font-bold' >
             <FaArrowRight></FaArrowRight>
           </Link>
-          {/* <p className="leading-snug text-white">{description}</p> */}
         </div>
       </div>
     </div>
