@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
+
+  const { login } = useContext(AuthContext);
+
+  const handleLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    login(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+      })
+
+      .catch(error => { console.error(error) });
+  }
+
   return (
     <div className="flex flex-col max-w-md p-6 rounded-md mx-auto sm:p-10 bg-black dark:text-gray-100 my-20">
       <div className="mb-8 text-center">
         <h1 className="my-3 text-4xl font-bold">Log in</h1>
       </div>
-      <form novalidate="" action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
+      <form onSubmit={handleLogin} className="space-y-12 ng-untouched ng-pristine ng-valid">
         <div className="space-y-4">
           <div>
             <label for="email" className="block mb-2 text-sm">Email</label>
