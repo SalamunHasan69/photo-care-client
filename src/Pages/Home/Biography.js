@@ -14,7 +14,8 @@ const Biography = () => {
         <div className='ml-4 self-center'>
           <h4 className='text-success text-2xl font-bold'>About Me</h4>
           <h3 className='text-black text-3xl font-bold my-3'>Salamun Hasan's Details</h3>
-          <p className='text-xl'>One bad chapter doesn't mean your story is over. Life is like a mirror, we get the best results when we smile. Smile at the world, and she'll smile back. Beauty begins the moment you decide to be yourself.</p>
+          <p className='text-xl'>The most time i spend in the field, the more i understand about my subject and the more likely i capture unusual wildlife behaviour.</p>
+          <p className='text-xl mt-2'>I hope this blog helped you identify the types of Wildlife Photography so you could choose for the ones that interest you the most!</p>
           <div className='grid lg:grid-cols-2 gap-3 mt-3'>
             <div className='bg-slate-100 p-3'>
               <h5>Name</h5>
