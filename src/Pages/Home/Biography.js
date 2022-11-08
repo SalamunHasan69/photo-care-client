@@ -3,7 +3,7 @@ import React from 'react';
 const Biography = () => {
   return (
     <div className='my-20'>
-      <div className='text-center my-10'>
+      <div className='text-center my-5'>
         <h4 className='italic text-success text-xl font-medium'>BIOGRAPHY</h4>
         <h2 className='text-4xl font-bold text-black'>Who am I?</h2>
       </div>
