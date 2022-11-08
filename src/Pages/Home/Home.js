@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <Helmet htmlAttributes>
         <html lang="en" />
-        <title>Home Photo Care</title>
+        <title>Photo Care</title>
         <meta name="description" content="Basic example" />
       </Helmet>
       <Banner></Banner>

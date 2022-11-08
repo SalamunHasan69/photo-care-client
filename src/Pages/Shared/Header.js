@@ -30,6 +30,38 @@ const Header = () => {
             }
           </div>
           <ul className="items-stretch hidden space-x-3 md:flex">
+            {
+              user?.uid ?
+                <>
+                  <li className="flex">
+                    <NavLink
+                      to='/addService'
+                      className={({ isActive }) =>
+                        isActive
+                          ? 'text-success flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                          : 'flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                      }
+                    >
+                      Add service
+                    </NavLink>
+                  </li>
+                  <li className="flex">
+                    <NavLink to='/myReviews'
+                      className={({ isActive }) =>
+                        isActive
+                          ? 'text-success flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                          : 'flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                      }
+                    >
+                      My reviews
+                    </NavLink>
+                  </li>
+                </>
+                :
+                <>
+
+                </>
+            }
             <li className="flex">
               <NavLink
                 to='/home'
@@ -42,17 +74,6 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            {/* <li className="flex">
-              <NavLink to='/rechart'
-                className={({ isActive }) =>
-                  isActive
-                    ? 'text-blue-700 flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
-                    : 'flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
-                }
-              >
-                Rechart
-              </NavLink>
-            </li> */}
             <li className="flex">
               <NavLink to='/blog'
                 className={({ isActive }) =>
@@ -72,6 +93,38 @@ const Header = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow dark:bg-black w-52">
+              {
+                user?.uid ?
+                  <>
+                    <li className="flex">
+                      <NavLink
+                        to='/addService'
+                        className={({ isActive }) =>
+                          isActive
+                            ? 'text-success flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                            : 'flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                        }
+                      >
+                        Add service
+                      </NavLink>
+                    </li>
+                    <li className="flex">
+                      <NavLink to='/myReviews'
+                        className={({ isActive }) =>
+                          isActive
+                            ? 'text-success flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                            : 'flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
+                        }
+                      >
+                        My reviews
+                      </NavLink>
+                    </li>
+                  </>
+                  :
+                  <>
+
+                  </>
+              }
               <li className="flex">
                 <NavLink
                   to='/home'
@@ -84,17 +137,6 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              {/* <li className="flex">
-                <NavLink to='/rechart'
-                  className={({ isActive }) =>
-                    isActive
-                      ? 'text-blue-700 flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
-                      : 'flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
-                  }
-                >
-                  Rechart
-                </NavLink>
-              </li> */}
               <li className="flex">
                 <NavLink to='/blog'
                   className={({ isActive }) =>
