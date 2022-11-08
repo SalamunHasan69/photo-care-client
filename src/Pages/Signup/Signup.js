@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Signup = () => {
 
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+
   const handleSignUp = event => {
     event.preventDefault();
     const form = event.target;
@@ -15,8 +18,14 @@ const Signup = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
+        setError('');
+        form.reset();
+        navigate('/login');
       })
-      .catch(error => console.error(error))
+      .catch(error => {
+        console.error(error)
+        setError(error.message);
+      })
   }
 
   return (
@@ -40,6 +49,8 @@ const Signup = () => {
             </div>
             <input type="password" name="password" id="password" placeholder="password" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" required />
           </div>
+          <br />
+          <p className='text-red-700'>{error}</p>
         </div>
         <div className="space-y-2">
           <div>

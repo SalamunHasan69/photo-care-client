@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Header = () => {
+
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => { })
+      .catch(error => console.error(error));
+  };
+
   return (
     <div>
       <div className="navbar bg-black dark:text-gray-100 px-10">
-        <div className="lg:container flex justify-between h-16 mx-auto">
+        <div className="lg:container flex justify-around h-16 mx-auto">
+          <div className='items-stretch hidden md:flex'>
+            {
+              user?.uid ?
+                <>
+                  <button onClick={handleLogOut} className='btn btn-outline-dark'>Log out</button>
+                </>
+                :
+                <>
+                  <button className="btn btn-success mr-1"><Link to='/login'>Log in</Link></button>
+                  <button className="btn btn-outline btn-success"><Link to='/signup'>Sign up</Link></button>
+                </>
+            }
+          </div>
           <ul className="items-stretch hidden space-x-3 md:flex">
             <li className="flex">
               <NavLink
@@ -84,6 +107,10 @@ const Header = () => {
                 </NavLink>
               </li>
             </ul>
+            <div>
+              <button className="btn btn-success mr-1"><Link to='/login'>Log in</Link></button>
+              <button className="btn btn-outline btn-success"><Link to='/signup'>Sign up</Link></button>
+            </div>
           </div>
         </div>
         <div className="navbar-end">
@@ -91,7 +118,7 @@ const Header = () => {
             to='/'
             aria-label="Back to homepage"
             className="flex items-center p-2">
-            <h3 className="text-success text-2xl font-bold leading-none sm:text-3xl italic">Photo Care</h3>
+            <h3 className="text-success text-2xl font-bold leading-none lg:text-4xl italic">Photo Care</h3>
           </Link>
         </div>
       </div>

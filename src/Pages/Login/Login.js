@@ -1,11 +1,18 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Contexts/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
-  const { login } = useContext(AuthContext);
+  const { login, user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = event => {
     event.preventDefault();
@@ -17,10 +24,33 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        setError('');
       })
 
-      .catch(error => { console.error(error) });
-  }
+      .catch(error => {
+        console.error(error)
+        setError(error.message);
+      });
+  };
+
+  const { providerLogin } = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then(result => {
+        const user = result.user
+        console.log(user);
+      })
+      .catch(error => console.error(error))
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from])
 
   return (
     <div className="flex flex-col max-w-md p-6 rounded-md mx-auto sm:p-10 bg-black dark:text-gray-100 my-20">
@@ -39,6 +69,8 @@ const Login = () => {
             </div>
             <input type="password" name="password" id="password" placeholder="password" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" required />
           </div>
+          <br />
+          <p className='text-red-700'>{error}</p>
         </div>
         <div className="space-y-2">
           <div>
@@ -49,7 +81,7 @@ const Login = () => {
             <p>OR</p>
             <hr className="w-full dark:text-gray-400" />
           </div>
-          <button type="button" className="flex items-center justify-center w-full p-3 space-x-4 border rounded-md btn btn-outline btn-success">
+          <button onClick={handleGoogleSignIn} type="button" className="flex items-center justify-center w-full p-3 space-x-4 border rounded-md btn btn-outline btn-success">
             <FaGoogle></FaGoogle>
             <p>Login with Google</p>
           </button>
