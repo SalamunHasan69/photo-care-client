@@ -4,6 +4,8 @@ import { useLoaderData } from 'react-router-dom';
 // import { FaArrowRight } from "react-icons/fa";
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import ClientReviews from '../Reviews/ClientReviews';
+import UserReviews from '../Reviews/UserReviews';
 
 const ServiceDetails = () => {
 
@@ -33,6 +35,12 @@ const ServiceDetails = () => {
             <p className="leading-snug text-white">{description}</p>
           </div>
         </div>
+      </div>
+      <div>
+        <ClientReviews></ClientReviews>
+      </div>
+      <div>
+        <UserReviews></UserReviews>
       </div>
     </div>
   );

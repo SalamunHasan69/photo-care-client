@@ -20,7 +20,7 @@ const Header = () => {
             {
               user?.uid ?
                 <>
-                  <button onClick={handleLogOut} className='btn btn-outline-dark'>Log out</button>
+                  <button onClick={handleLogOut} className='btn btn-outline btn-success'>Log out</button>
                 </>
                 :
                 <>
