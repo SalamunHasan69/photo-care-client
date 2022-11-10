@@ -10,8 +10,10 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return <div>
-      <FaSpinner className='text-4xl font-bold text-success mx-auto text-center animate-spin'></FaSpinner>
-      <h4 className='text-4xl font-bold text-success mx-auto text-center animate-spin'>Loading...</h4>
+      <>
+        <FaSpinner className='text-4xl font-bold text-success mx-auto text-center animate-spin'></FaSpinner>
+      </>
+      {/* <h4 className='text-4xl font-bold text-success mx-auto text-center animate-spin'>Loading...</h4> */}
     </div>
   }
 
