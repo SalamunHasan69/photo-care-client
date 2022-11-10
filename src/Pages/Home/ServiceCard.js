@@ -7,7 +7,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceCard = ({ service }) => {
 
-  const { _id, img, title, price, } = service;
+  const { _id, img, title, price, description } = service;
 
   return (
     <div className="max-w-lg p-4 shadow-md bg-black dark:text-gray-100">
@@ -24,11 +24,18 @@ const ServiceCard = ({ service }) => {
             </PhotoView>
           </div>
         </PhotoProvider>
-        <div className="space-y-2 flex justify-between items-center">
-          <h3 className="text-xl font-semibold text-success">Price: ${price}</h3>
-          <Link to={`/serviceDetails/${_id}`} className='text-success text-2xl font-bold' >
-            <FaArrowRight></FaArrowRight>
-          </Link>
+        <div>
+          <p>
+            {
+              description.length < 100 ? `${description}` : `${description.substring(0, 99)} ...`
+            }
+          </p>
+          <div className="space-y-2 flex justify-between items-center">
+            <h3 className="text-xl font-semibold text-success">Price: ${price}</h3>
+            <Link to={`/serviceDetails/${_id}`} className='text-success text-2xl font-bold' >
+              <FaArrowRight></FaArrowRight>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

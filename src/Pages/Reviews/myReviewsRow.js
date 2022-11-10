@@ -6,7 +6,7 @@ const myReviewsRow = ({ myReviewsRow }) => {
   // const [user, setUser] = useState();
 
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/myReviews/${_id}`)
+  //   fetch(`https://photo-care-server.vercel.app/myReviews/${_id}`)
   //     .then(res => res.json())
   //     .then(data => console.log(data));
   // }, [_id]);

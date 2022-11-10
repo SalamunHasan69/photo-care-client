@@ -20,7 +20,7 @@ const UserReviews = () => {
       message
     }
 
-    fetch('http://localhost:5000/myReviews', {
+    fetch('https://photo-care-server.vercel.app/myReviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
