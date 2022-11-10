@@ -28,7 +28,13 @@ const UserReviews = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        if (data.acknowledged) {
+        if (data.acknowledged && user?.login) {
+          toast('Want to review? log in first', {
+            icon: '🥺',
+          });
+          form.reset();
+        }
+        else if (data.acknowledged) {
           toast.success('Review submitted');
           form.reset();
         };
