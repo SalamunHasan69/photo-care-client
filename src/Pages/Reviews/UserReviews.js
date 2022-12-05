@@ -49,11 +49,11 @@ const UserReviews = () => {
   return (
     <div className='my-10'>
       <div className='text-center my-5'>
-        <h2 className='text-4xl font-bold'><span className='text-black'>Give in your</span> <span className='text-success'>Review</span></h2>
+        <h2 className='text-4xl font-bold'><span className='text-black'>Give me in your</span> <span className='text-success'>Feedback</span></h2>
       </div>
       <form onSubmit={handleSubmit} className='w-[90%] lg:w-[50%] mx-auto'>
-        <input type="text" name="name" placeholder='Your Name' className='input input-ghost input-bordered w-full' required />
-        <input type="email" name="email" placeholder='Your Email' defaultValue={user?.email} className='input input-ghost input-bordered w-full my-1' required />
+        {/* <input type="text" name="name" placeholder='Your Name' className='input input-ghost input-bordered w-full' required />
+        <input type="email" name="email" placeholder='Your Email' defaultValue={user?.email} className='input input-ghost input-bordered w-full my-1' required /> */}
         <textarea name='message' className="textarea textarea-bordered h-32 w-full my-1" placeholder="Your Message" required></textarea>
         <button type="submit" className='btn btn-success w-full mb-10'>Submit</button>
       </form>

@@ -1,35 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { FaQuoteLeft } from "react-icons/fa";
 
-const myReviewsRow = ({ myReviewsRow }) => {
+const MyReviewsRow = ({ myReview }) => {
 
-  const { _id, name, message } = myReviewsRow;
-  // const [user, setUser] = useState();
-
-  // useEffect(() => {
-  //   fetch(`https://photo-care-server.vercel.app/myReviews/${_id}`)
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // }, [_id]);
+  const { message } = myReview;
 
   return (
-    <tr>
-      <th>
-        <label>
-          <button className='btn btn-ghost'>X</button>
-        </label>
-      </th>
-      <td>
-        <div className="flex items-center space-x-3">
-          <div>
-            <div className="font-bold">{name}</div>
-          </div>
-        </div>
-      </td>
-      <td>
-        {message}
-      </td>
-    </tr>
+    <div>
+      <div className='border-l-4 border-emerald-400'>
+        <FaQuoteLeft className='text-5xl place-items-start ml-1'></FaQuoteLeft>
+        <p className='ml-16 text-xl'>{message}</p>
+      </div>
+    </div>
   );
 };
 
-export default myReviewsRow;
+export default MyReviewsRow;

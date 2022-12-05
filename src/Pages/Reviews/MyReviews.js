@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from "react-helmet"
 import { AuthContext } from '../../Contexts/AuthProvider';
-import myReviewsRow from './myReviewsRow';
+import MyReviewsRow from './MyReviewsRow';
 
 const MyReviews = () => {
 
   const { user } = useContext(AuthContext);
   const [review, setReview] = useState([])
+
+  console.log(review);
 
   useEffect(() => {
     fetch(`https://photo-care-server.vercel.app/myReviews?email=${user.email}`)
@@ -22,26 +24,13 @@ const MyReviews = () => {
         <meta name="description" content="Basic example" />
       </Helmet>
 
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full lg:w-[50%] mx-auto">
-          <thead>
-            <tr>
-              <th>
-              </th>
-              <th>Name</th>
-              <th>Review</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              review.map(myReview => <myReviewsRow
-                key={myReview._id}
-                myReview={myReview}
-              ></myReviewsRow>)
-            }
-          </tbody>
-        </table>
+      <div className="lg:grid grid-cols-2 w-[90%] lg:w-[50%] mx-auto gap-4 my-20">
+        {
+          review.map(myReview => <MyReviewsRow
+            key={myReview._id}
+            myReview={myReview}
+          ></MyReviewsRow>)
+        }
       </div>
 
     </div>

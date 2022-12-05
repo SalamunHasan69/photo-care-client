@@ -33,7 +33,7 @@ const Header = () => {
             {
               user?.uid ?
                 <>
-                  <li className="flex">
+                  {/* <li className="flex">
                     <NavLink
                       to='/addService'
                       className={({ isActive }) =>
@@ -44,7 +44,7 @@ const Header = () => {
                     >
                       Add service
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li className="flex">
                     <NavLink to='/myReviews'
                       className={({ isActive }) =>
@@ -96,7 +96,7 @@ const Header = () => {
               {
                 user?.uid ?
                   <>
-                    <li className="flex">
+                    {/* <li className="flex">
                       <NavLink
                         to='/addService'
                         className={({ isActive }) =>
@@ -107,7 +107,7 @@ const Header = () => {
                       >
                         Add service
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li className="flex">
                       <NavLink to='/myReviews'
                         className={({ isActive }) =>
